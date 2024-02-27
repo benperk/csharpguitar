@@ -1,0 +1,30 @@
+﻿@page
+@model csharpguitar.Pages.HighCpuHangModel
+@{
+    ViewData["Title"] = "high cpu hang";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+    int numberOfCpus = Environment.ProcessorCount;
+    string serverName = Environment.MachineName;
+    DateTime start = DateTime.Now;
+
+    string guitarManufacturer = "\"Gibson Fender Charvel Taylor Jackson MartinandCompany Dean Epiphone Takamine";  
+
+    for (int i = 0; i < 200; i++)
+    {
+        System.Text.RegularExpressions.Match m = System.Text.RegularExpressions.Regex.Match(guitarManufacturer, "\"(([^\\\\\"]*)(\\\\.)?)*\"");
+    }
+
+    DateTime end = DateTime.Now; 
+    var total = end.Subtract(start).TotalMinutes;
+}
+
+<p>This is a slow rendering page with high cpu.  Open multiple tabs/browsers and access this multiple times, in parallel, to get high cpu.
+    A single borwoser session will not cause much cpu, but 5 will take it to 100%, assuming 2 - 4 CPUs. </p>
+<p>The server on which this ran is @serverName has @numberOfCpus cpu(s). </p>
+<p>The request started at @start and ended at @end and took @total minutes </p>
+<div class="text-right">
+    <img src="/images/csharpguitar.PNG" align="right" width="250" height="200" />
+</div>

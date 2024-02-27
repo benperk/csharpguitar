@@ -1,0 +1,42 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "home";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>be nice! rock!</p>
+<div class="text-right">
+    <img src="/images/csharpguitar.PNG" align="right" width="250" height="200" />
+</div>
+
+<table style="width:74%">
+    <tr><th>scenario</th><th>cmd</th><th>description</th></tr>
+    <tr>
+        <td>handled exception</td>
+        <td style="white-space:nowrap">procdump -accepteula -ma -e 1 -f &lt;<i>filter</i>&gt; &lt;<i>PID</i>&gt;</td>
+        <td>Capture a full memory dump when an exception matching the &lt;<i>filter</i>&gt; is thrown</td>
+    </tr>
+    <tr>
+        <td>unhandled exception</td>
+        <td>procdump -accepteula -ma -e -f &lt;<i>filter</i>&gt; &lt;<i>PID</i>&gt;</td>
+        <td>Capture a full memory dump when a 2nd chance exception matching the &lt;<i>filter</i>&gt; is thrown</td>
+    </tr>
+    <tr>
+        <td>terminate process</td>
+        <td>procdump -accepteula -ma -t  &lt;<i>PID</i>&gt;</td>
+        <td>Capture a full memory dump when the process terminates</td>
+    </tr>
+    <tr><td>hang high cpu</td>
+        <td>procdump -accepteula -ma -n 3 -s # -c 80 &lt;<i>PID</i>&gt;</td>
+        <td>Capture 3 full memory dumps # seconds apart when the CPU consumption exceeds 80%</td>
+    </tr>
+    <tr><td>hang low cpu</td>
+        <td>procdump -accepteula -ma -n 3 -s # &lt;<i>PID</i>&gt;</td>
+        <td>Capture 3 full memory dumps # seconds apart</td>
+    </tr>
+    <tr>
+        <td style="white-space:nowrap">memory consumption</td>
+        <td style="white-space:nowrap">procdump  -accepteula -ma -m 2000 &lt;<i>PID</i>&gt;</td>
+        <td>Capture a full memory dump when Memory consumption is more that 2000MB (i.e. 2GB)</td></tr>
+</table>

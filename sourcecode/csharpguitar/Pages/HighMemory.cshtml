@@ -1,0 +1,49 @@
+﻿@page
+@model csharpguitar.Pages.HighMemoryModel
+@{
+    ViewData["Title"] = "high memory";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+    string StatusMessage;
+    int forLoop = 0;
+    long startingMemory = 0;
+    long endingMemory = 0;
+    long totalConsumption = 0;
+    try
+    {
+        System.Text.StringBuilder stringBuffer = new System.Text.StringBuilder();
+
+        System.Diagnostics.Process proc = System.Diagnostics.Process.GetCurrentProcess();
+        startingMemory = proc.PrivateMemorySize64 / 1000000;
+
+        List<string[]> guitars = new List<string[]>();
+
+        StreamReader reader;
+        for (int i = 0; i < 26; i++)
+        {            
+            reader = new StreamReader("D:\\home\\site\\wwwroot\\wwwroot\\ListOfGuitars.txt");
+            stringBuffer.Append(reader.ReadToEnd());
+            ++forLoop;
+        }
+        System.Diagnostics.Process proc2 = System.Diagnostics.Process.GetCurrentProcess();
+        endingMemory = proc2.PrivateMemorySize64 / 1000000;
+
+        totalConsumption = ((endingMemory - startingMemory));
+
+        StatusMessage = "The data was loaded into memory...";        
+    }
+    catch (Exception ex)
+    {
+        StatusMessage = ex.Message;
+    }
+}
+
+<p>This page loads a 50MB file @forLoop times...</p>
+<p>@StatusMessage memory starting amount (@startingMemory MB) ending memory amount (@endingMemory MB) a difference of @totalConsumption MB</p>
+<p> </p>
+</p>Private Bytes (PrivateMemorySize64) are a reasonable approximation of the amount of memory your executable is using and can be used to help narrow down a list of potential candidates for a memory leak</p>
+<div class="text-right">
+    <img src="/images/csharpguitar.PNG" align="right" width="250" height="200" />
+</div>

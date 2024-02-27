@@ -1,0 +1,25 @@
+﻿@page
+@model csharpguitar.Pages.LowCpuHangModel
+@{
+    ViewData["Title"] = "low cpu hang";
+    
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+    int numberOfCpus = Environment.ProcessorCount;
+    string serverName = Environment.MachineName;
+    DateTime start = DateTime.Now;
+    System.Threading.Thread.Sleep(45000); //see code behind for lock(){}
+    DateTime end = DateTime.Now;
+    var total = end.Subtract(start).TotalSeconds;
+}
+
+<p>
+    This is a slow rendering page with low cpu.  It will hang for 40+ seconds.
+</p>
+<p>The server on which this ran is @serverName has @numberOfCpus cpu(s). </p>
+<p>The request started at @start and ended at @end and took @total seconds </p>
+<div class="text-right">
+    <img src="/images/csharpguitar.PNG" align="right" width="250" height="200" />
+</div>

@@ -1,0 +1,26 @@
+﻿@page
+@model csharpguitar.Pages.HandledModel
+@{
+    ViewData["Title"] = "handled exception";
+}
+<h1>@ViewData["Title"]</h1>
+
+@*@{
+    string StatusMessage;
+    decimal percentage = 0, number = 1000, total = 0;
+    try
+    {
+        percentage = number / total;
+        StatusMessage = "You will never see this message.";
+    }
+    catch (DivideByZeroException divEx)
+    {
+        StatusMessage = $"A handled exception just happened: -> {divEx.Message.ToString()}";
+    }
+}
+
+<p>@StatusMessage</p>*@
+<p>@ViewData["StatusMessage"]</p>
+<div class="text-right">
+    <img src="/images/csharpguitar.PNG" align="right" width="250" height="200" />
+</div>

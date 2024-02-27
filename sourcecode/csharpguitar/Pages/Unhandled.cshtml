@@ -1,0 +1,20 @@
+﻿@page
+@model csharpguitar.Pages.UnhandledModel
+@{
+    ViewData["Title"] = "unhandled exception";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+    string StatusMessage;
+    decimal percentage = 0, number = 1000, total = 0;
+
+    percentage = number / total;
+    StatusMessage = $"KABOOOOOOOOM!! -> {percentage.ToString()}";
+    StatusMessage = "An unhandled exception will be thrown shortly";
+}
+
+<p>@StatusMessage</p>
+<div class="text-right">
+    <img src="/images/csharpguitar.PNG" align="right" width="250" height="200" />
+</div>
