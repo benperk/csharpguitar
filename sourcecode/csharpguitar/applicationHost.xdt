@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+	<system.applicationHost>
+		<sites>
+			<site name="%WEBSITE_SITE_NAME%" id="%INSTANCE_ID%">
+				<application path="/" applicationPool="%WEBSITE_DEPLOYMENT_ID%">
+					<virtualDirectory path="/brainjammer" physicalPath="D:\mounts\brainjammer" xdt:Transform="Insert" />
+				</application>
+			</site>
+		</sites>
+	</system.applicationHost>
+    <system.webServer> 
+      <runtime xdt:Transform="InsertIfMissing">
+        <environmentVariables xdt:Transform="InsertIfMissing">
+          <!-- <add name="FOO" value="BAR" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />  -->  
+          <add name="PATH" value="%PATH%;%HOME%\SiteExtensions\theBestSiteExtensionEver" xdt:Locator="Match(name)" xdt:Transform="InsertIfMissing" />    
+        </environmentVariables>
+      </runtime> 
+    </system.webServer>
+</configuration>
