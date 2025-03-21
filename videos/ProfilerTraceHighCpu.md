@@ -5,7 +5,7 @@ This document provides instructional videos for capturing a Hihg Cpu .NET Profil
 [![Watch the video](images/CaptureHighCpu.png)](https://youtu.be/vt5fpE0bzSY)
 
 ## How to analyze an in-process .NET Profiler Trace for High Cpu
-[![Watch the video](images/CaptureHighCpu.png)](https://youtu.be/vt5fpE0bzSY)
+[![Watch the video](images/AnalyzeHighCpuIp.png)](https://youtu.be/vt5fpE0bzSY)
 
 ## How to analyze an out-of-process .NET Profiler Trace for High Cpu
 [![Watch the video](images/CaptureHighCpu.png)](https://youtu.be/vt5fpE0bzSY)
